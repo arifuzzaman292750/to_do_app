@@ -44,6 +44,10 @@ class _HomePageState extends State<HomePage> {
     db.updateDatabase();
   }
 
+  void cancelNewTask() {
+    Navigator.pop(context);
+  }
+
   void createNewTask() {
     showDialog(
       context: context,
@@ -51,7 +55,7 @@ class _HomePageState extends State<HomePage> {
         return DialogBox(
           controller: _controller,
           onSave: saveNewTask,
-          onCancel: () => Navigator.of(context).pop,
+          onCancel: cancelNewTask,
         );
       },
     );
